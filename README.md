@@ -1,33 +1,89 @@
-# Justin Yurasits
+# Hi, I'm Justin Yurasits
 
-Twelve years building enterprise software products. Three years inside construction operations as a licensed Massachusetts Construction Supervisor, running $1M–$4M renovations at a $50 million contractor. [Construction OS](https://justinyurasits.com) came out of the overlap.
+I'm a product leader and hands-on AI systems builder. Twelve-plus years leading enterprise software across SaaS, developer platforms, financial services, and conversational systems — and, since 2024, building AI applications myself with the Claude API, Claude Code, MCP/tool integrations, retrieval, and Postgres.
 
-Previously: Principal Product Manager at Optimizely on generative AI and data-science products. Fidelity Investments. Jabra. Citizens.
-
----
-
-## What I'm building
-
-**[Construction OS](https://justinyurasits.com)** — an AI operating system for construction companies, configured around how a company actually works: its documents, standards, pricing rules, and workflows. Used on roughly twenty real jobs and bids.
-
-The document library covers 110 distinct construction document types across five lifecycle phases — built from real work, not assembled from a template pack. The AI systems were built out of the problems encountered doing that work.
+I'm also a licensed Massachusetts Construction Supervisor who ran $1M–$4M renovations. That's why most of what I build points at construction: I know what the work looks like when the software isn't there.
 
 ---
 
-## Repos
+## What I've built
 
-**[fieldscope](https://github.com/justinyurasits/fieldscope)** — Site safety compliance tool for construction: AI-generated protocols, training tracking with attestation, photo-based hazard checks via Claude vision, OSHA-grounded knowledge base. Node.js / Express / PostgreSQL / Claude API. The README is honest about what's real and what's not yet.
+**Fieldscope** — [live demo](https://fieldscope-vm64.onrender.com/) · [source](https://github.com/justinyurasits/fieldscope)
 
-**[construction-os](https://github.com/justinyurasits/construction-os)** — Core application: Python package, JSON schemas for change order documents, and acceptance tests against real construction scenarios (added lighting scope changes, unauthorized work, concealed damage discovery, contract pricing, allowance management).
+login `fieldscope` / `safety` · free instance, so the first load can take up to a minute while the server wakes
 
-**[construction-os-corpus](https://github.com/justinyurasits/construction-os-corpus)** — The document library: 110 construction document types as structured markdown, organized by lifecycle phase (pre-construction, contracting, change management, billing, closeout). Company config and pricing logic in YAML.
+Subcontractor safety compliance for general contractors. Generates OSHA-grounded protocols for specific tasks, tracks training and review cadence, and checks daily site photos against each protocol's PPE requirements using Claude Vision.
 
-**[scholars-row](https://github.com/justinyurasits/scholars-row)** — Marketing site for a boutique academic housing developer. Next.js 15 / TypeScript / Tailwind, with custom SVG schematics (acoustic isolation, air quality, floor plan) and a markdown-driven location content system.
+One design decision matters more than the rest: an AI-generated safety protocol is a draft, not a record, until a named person approves it. Safety documentation carries legal weight, and a model shouldn't be the last signature on it.
 
-**[beacon-hill-interiors](https://github.com/justinyurasits/beacon-hill-interiors)** — Next.js site for a Boston interior services company. Bespoke design system, six pages.
+Built with Express, Postgres, Claude API, and Claude Vision.
 
-**[justinyurasits.github.io](https://github.com/justinyurasits/justinyurasits.github.io)** — The Construction OS product site. Vanilla HTML/CSS — no framework, no build step. Design system built from scratch with CSS custom properties and a fluid type scale.
+This is intentionally pilot-scope. The repo documents its own limits, including no application-level user authentication, free-text approver identity, single-tenant architecture, and a deliberately narrow OSHA library. On a prototype, those gaps are more informative than pretending the demo is production-ready.
 
 ---
 
-[justinyurasits.com](https://justinyurasits.com) · [LinkedIn](https://linkedin.com/in/justinjyurasits) · [Book a call](https://cal.com/justinyurasits)
+**Change Order Drafter** — [try it](https://draftconstructionchangeorder.com/) · [source](https://github.com/justinyurasits/construction-os-demo)
+
+Turns field notes and scope descriptions into a drafted construction change order using the contract references, scope language, and structure a general contractor actually works from.
+
+The goal is not to automate approval or judgment. It's to turn messy field information into a structured first draft faster, while leaving the project manager in control of the final document.
+
+---
+
+**Construction OS** — [source](https://github.com/justinyurasits/construction-os)
+
+The larger construction-AI system behind this work: governed knowledge, document generation, and operational workflows.
+
+Current work includes a 173-document corpus under version control and governance — permanent IDs, policy separated from procedure, configuration at the rule level — with a retrieval architecture designed on top of it.
+
+The evaluation set was written before any retrieval code, and writing it exposed the real problem: the documents contradicted each other, and no amount of retrieval quality would have fixed that.
+
+That changed the order of operations. Corpus quality, authority, and governance had to come before indexing and retrieval.
+
+---
+
+## How I approach AI products
+
+**Evaluate before you optimize.**
+Define what a correct answer looks like before tuning prompts, retrieval, or models.
+
+**Treat the corpus as part of the system.**
+Retrieval quality cannot compensate for contradictory, incomplete, or ungoverned source material.
+
+**Use AI for judgment, and deterministic systems where certainty matters.**
+Let models interpret ambiguous language and context; keep permissions, approvals, calculations, and hard business rules deterministic wherever possible.
+
+**Design the failure path.**
+A good AI product knows when to answer, when to clarify, when to reach for a tool, and when to hand the problem to a person.
+
+**Measure the hard cases, not the average.**
+Ambiguous requests, missing information, multi-intent inputs, and questions the system cannot answer often tell you more than the headline score.
+
+---
+
+## Earlier product work
+
+- **Citizens** — owned roadmap, strategy, and delivery for the conversational-AI and intent-routing workstream of a major U.S. bank's phone-channel transformation. Reduced a 259-intent legacy catalog to 22 resolution paths after testing rejected an earlier 10-intent design, and launched the first capabilities to real retail customers.
+- **Optimizely** — owned GenAI strategy across 10+ SaaS product lines and the internal model garden that gave engineering teams foundation-model access without each building its own integration. Established model evaluation on cost, quality, and response time as a product practice.
+- **Optimizely Connect** — took a serverless developer platform from pilot to production: APIs, SDKs, an app marketplace where the number of apps in daily use grew from 3 to 35 in three months, outside companies building on it, and most of the original v1 developer documentation, whose core remains substantially intact today.
+- **Jabra** — zero-to-one product development across software and hardware for a $250M ARR portfolio, including two headset lines taken from market analysis through manufacturing and launch.
+- **Fidelity Investments** — led digital onboarding and self-service for 25M+ retail customers and later ran contact-center platform operations at scale.
+
+---
+
+## Tools
+
+`Claude API` · `Claude Code` · `Claude Vision` · `MCP/tool integrations` · `Postgres` · `n8n` · `Supabase` · `Vercel` · `retrieval` · `structured outputs` · `Git/GitHub`
+
+I use AI-assisted coding heavily. My strength isn't pretending to be a traditional software engineer — it's moving from user problem → system design → working prototype → evaluation → product decision without handing every intermediate step to someone else.
+
+---
+
+## Background
+
+MBA, Babson College  
+BS Chemical Engineering, Georgia Institute of Technology  
+Massachusetts Construction Supervisor License  
+Greater Boston, Massachusetts
+
+[LinkedIn](https://www.linkedin.com/in/justinjyurasits)
