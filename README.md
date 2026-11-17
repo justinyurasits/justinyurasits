@@ -22,7 +22,7 @@ This is intentionally pilot-scope. The repo documents its own limits, including 
 
 ---
 
-**Change Order Drafter** — [try it](https://draftconstructionchangeorder.com/) · [source](https://github.com/justinyurasits/construction-os-demo)
+**Change Order Generator** — [try it](https://draftconstructionchangeorder.com/) · [source](https://github.com/justinyurasits/pco-generator)
 
 Turns field notes and scope descriptions into a drafted construction change order using the contract references, scope language, and structure a general contractor actually works from.
 
@@ -30,7 +30,7 @@ The goal is not to automate approval or judgment. It's to turn messy field infor
 
 ---
 
-**Construction OS** — [source](https://github.com/justinyurasits/construction-os)
+**Construction OS** — [design docs](https://github.com/justinyurasits/design/tree/main/construction-os) · [source](https://github.com/justinyurasits/construction-os-workbench)
 
 The larger construction-AI system behind this work: governed knowledge, document generation, and operational workflows.
 
